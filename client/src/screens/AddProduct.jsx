@@ -7,7 +7,6 @@ export default function AddProduct() {
   const [name, setName] = useState("");
   const [price, setPrice] = useState("");
   const [image, setImage] = useState(null);
-  const [categories, setCategories] = useState([]);
   const [checkCategories, setCheckCategories] = useState([]);
 
   useEffect(() => {

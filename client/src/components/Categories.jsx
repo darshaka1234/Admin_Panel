@@ -22,10 +22,6 @@ const CategoryTable = () => {
     });
   }, []);
 
-  const handleAddCategory = () => {
-    navigate("/add-category");
-  };
-
   const handleSort = () => {
     setSort(sort === "asc" ? "desc" : "asc");
   };
@@ -34,12 +30,18 @@ const CategoryTable = () => {
     navigate(`/edit-category/${categoryId}`);
   };
 
+  const remove = (delId) => {
+    const newCate = categories.filter((cate) => cate._id !== delId);
+    setCategories(newCate);
+  };
+
   const handleDelete = async (categoryId) => {
-    await axios
-      .delete(`http://localhost:3001/categories/${categoryId}`)
-      .then(() => {
-        navigate("/table");
-      });
+    try {
+      await axios.delete(`http://localhost:3001/categories/${categoryId}`);
+      remove(categoryId);
+    } catch (err) {
+      console.log(err);
+    }
   };
 
   return (
@@ -49,7 +51,7 @@ const CategoryTable = () => {
         variant="contained"
         color="secondary"
         type="button"
-        onClick={handleAddCategory}
+        onClick={() => navigate("/add-category")}
       >
         ADD NEW CATEGORY
       </Button>

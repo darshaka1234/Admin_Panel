@@ -77,6 +77,7 @@ const ProductTable = () => {
                     src={`data:${
                       product.image.contentType
                     };base64,${Buffer.from(product.image).toString("base64")}`}
+                    alt={product.name}
                   />
                 </TableCell>
                 <TableCell>
