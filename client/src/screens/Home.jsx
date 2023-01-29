@@ -32,8 +32,8 @@ const Home = () => {
       <div className="mainpage" style={homeStyles.mainpage}>
         <AppBar />
         <div className="cardcollection" style={homeStyles.cardcollection}>
-          <Card count={1200} t1={"Active"} t2={"Subciptions"} />
-          <Card count={456} t1={"Mobile Apps"} t2={"Installed"} />
+          <Card count={1200} t1={"Brand New"} t2={"Products"} />
+          <Card count={456} t1={"Diffrent"} t2={"Categories"} />
           <Card count={5500} t1={"Active"} t2={"Users"} />
         </div>
         {change ? <ProductTable /> : <CategoryTable />}
